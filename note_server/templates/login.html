@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block navbar %}
+    <div class="my-2 my-lg-0">
+        <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'signup' %}">Sign Up</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row mt-2">
+      <div class="col-md-4 offset-md-4">
+        <div class="card border-primary">
+          <div class="card-header text-white bg-primary">
+              <i class="fa fa-user"></i>
+              Login
+          </div>
+          <div class="card-body">
+              <form action="" method="post">
+                  {% csrf_token %}
+                  {% if form.non_field_errors %}
+                    <div class="alert alert-danger mt-2"  role="alert">
+                      <div class="text-left">
+                        {% for error in form.non_field_errors %}
+                          <p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  {% endif %}
+                  <div class="form-group">
+                    <label for="{{ form.username.id_for_label }}">Username</label>
+                    <input type="text" name="{{ form.username.html_name }}" id="{{ form.username.id_for_label }}" class="form-control" placeholder="User name" required autofocus>
+                  </div>
+                  <div class="form-group">
+                    <label for="{{ form.password.id_for_label }}">Password</label>
+                    <input type="password" name="{{ form.password.html_name }}" id="{{ form.password.id_for_label }}" class="form-control" placeholder="Password" required>
+                  </div>
+                  <button class="btn btn-success col-12" type="submit">Login</button>
+                </form>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<script src="{% static 'client/common.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Note{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    {% verbatim %}
+    <div id="app">
+      <note></note>
+    </div>
+    {% endverbatim %}
+  </div>
+</div>
+<script src="{% static 'client/index.js' %}"></script>
+{% endblock %}
