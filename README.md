@@ -36,7 +36,7 @@ If an error occurs during installation, update the setuptools and pip versions a
 ```
 pip install -U pip setuptools
 ```
-##Database migration
+## Database migration
 ```
 cd vuex-python/note_server
 python manage.py migrate
@@ -45,7 +45,7 @@ create a superUser
 ```
 python manage.py createsuperuser
 ```
-##Run development server
+## Run development server
 ```
 python manage.py runserver 0.0.0.0:8000
 ```
