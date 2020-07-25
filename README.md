@@ -36,7 +36,7 @@ If an error occurs during installation, update the setuptools and pip versions a
 ```
 pip install -U pip setuptools
 ```
-##Database migration
+## Database migration
 ```
 cd vuex-python/note_server
 python manage.py migrate
