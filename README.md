@@ -1,4 +1,8 @@
-# Vuex-Python
+# Vuex-Python Simple Note Application
+#PC
+![](screenshot/Screenshot_pc.jpg)
+#Mobile
+![](screenshot/Screenshot_mobile.jpg)
 ## Default setup
 In your computer open terminal and create a project directory
 ```
