@@ -91,7 +91,6 @@ module.exports = {
   },
   methods: {
     shownProgress() {
-      // 表示完了前にhideProgress()が呼ばれると閉じられないのでshownイベントで再度呼ぶ
       if (this.progressHidden) {
         this.$refs.progressModal.hide()
       }

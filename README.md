@@ -45,7 +45,7 @@ create a superUser
 ```
 python manage.py createsuperuser
 ```
-##Run development server
+##Run development server(I am using vagrant)
 ```
 python manage.py runserver 0.0.0.0:8000
 ```

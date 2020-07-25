@@ -4,11 +4,11 @@ var path = require('path');
 module.exports = {
   entry: {
     babel_polyfill: 'babel-polyfill',
-    index: './src/index.js',  // アプリケーションページ用
-    common: './src/common.js'  // 共通ページ用
+    index: './src/index.js',  // For application page
+    common: './src/common.js'  // For common page
   },
   output: {
-    path: path.resolve('./build'),  // ビルドしたファイルの出力先
+    path: path.resolve('./build'),  // Output destination of built file
     filename: '[name].js'
   },
   resolve: {

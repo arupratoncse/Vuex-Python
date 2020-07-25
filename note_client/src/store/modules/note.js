@@ -11,14 +11,14 @@ const state = {
 
 const getters = {
   /**
-   * メッセージがある
+   * Is message
    */
   hasMessage: (state) => {
     return state.message != null
   },
 
   /**
-   * 処理中である
+   * In process
    */
   isProgress: (state) => {
     return state.progress != null
@@ -47,7 +47,7 @@ const getters = {
 
 const actions = {
   /**
-   * ページ一覧をロードする
+   * Load page list
    */
   load({commit}) {
     pageApi.list()
@@ -57,7 +57,7 @@ const actions = {
   },
 
   /**
-   * ページを選択する
+   * Select page
    */
   selectPage({commit, state}, page) {
     if (state.selectedPage && state.selectedPage.taint) {
@@ -68,7 +68,7 @@ const actions = {
   },
 
   /**
-   * 現在のページを保存する
+   * Save the current page
    */
   save({commit, state}, csrfToken) {
     if (!state.selectedPage.title || !state.selectedPage.content) {
@@ -84,7 +84,7 @@ const actions = {
   },
 
   /**
-   * 現在のページを削除する
+   * Delete current page
    */
   destroy({commit, state, dispatch}, csrfToken) {
     if (state.selectedPage.id == null) {
@@ -102,8 +102,8 @@ const actions = {
   },
 
   /**
-   * 新規ページを作る
-   * バックエンドへの保存はしません
+   * Create a new page
+   * Do not save to backend
    */
   create({commit, state}) {
     if (state.selectedPage && state.selectedPage.taint) {
@@ -113,7 +113,7 @@ const actions = {
   },
 
   /**
-   * 変更を破棄する
+   * Discard changes
    */
   revert({commit, state}) {
     if (state.selectedPage) {
@@ -124,7 +124,7 @@ const actions = {
 
 const mutations = {
   /**
-   * ページ一覧がロードされた
+   * Page list loaded
    */
   pagesLoaded(state, instances) {
     state.pages = instances
@@ -132,35 +132,35 @@ const mutations = {
   },
 
   /**
-   * ページが選択された
+   * Page selected
    */
   pageSelected(state, page) {
     state.selectedPage = page
   },
 
   /**
-   * メッセージが出現した
+   * Message appeared
    */
   messageAppeared(state, message) {
     state.message = message
   },
 
   /**
-   * メッセージを承諾した
+   * I accept the message
    */
   messageResolved(state) {
     state.message = null
   },
 
   /**
-   * 変更が破棄された
+   * Changes discarded
    */
   reverted(state) {
     state.selectedPage.revert()
   },
 
   /**
-   * 未保存のページが破棄された
+   * Unsaved page discarded
    */
   unsavedPageDestroyed(state) {
     state.pages.pop()
@@ -168,14 +168,14 @@ const mutations = {
   },
 
   /**
-   * ページが破棄された
+   * Page destroyed
    */
   pageDestroyed(state) {
     state.selectedPage = null
   },
 
   /**
-   * 新規ページが作成された
+   * New page created
    */
   newPageCreated(state) {
     let page = new Page
@@ -185,14 +185,14 @@ const mutations = {
   },
 
   /**
-   * 処理が開始された
+   * Processing started
    */
   progressStarted(state, progressMessage) {
     state.progress = progressMessage
   },
 
   /**
-   * 処理が終了した
+   * Processing is complete
    */
   progressFinished(state) {
     state.progress = null
