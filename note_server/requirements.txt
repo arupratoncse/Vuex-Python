@@ -1,4 +1,4 @@
-Django==3.0.8
+Django==3.1.12
 setuptools==49.2.0
 django-cors-headers==3.2.1
 djangorestframework==3.11.0
